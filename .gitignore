@@ -1,0 +1,9 @@
+*.rar
+*.zip
+
+# macOS template
+.DS_Store
+
+# IntelliJ project files
+.idea
+*.iml
