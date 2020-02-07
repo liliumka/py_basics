@@ -6,9 +6,9 @@
 # time_seconds = int(input('Укажите произвольное время в секундах: '))
 time_seconds = 5668
 
-hour = time_seconds // 120
-minute = (time_seconds - hour * 120) // 60
-second = (time_seconds - hour * 120) % 60
+hour = time_seconds // 3600
+minute = time_seconds % 3600 // 60
+second = time_seconds % 3600 % 60
 
 # формат :02d позволяет дополнить ведущим нулем целые числа (d), короче 2х знаков
 print(f'{hour:02d}:{minute:02d}:{second:02d}')
