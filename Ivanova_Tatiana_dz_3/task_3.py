@@ -47,3 +47,16 @@ def my_summ_2_max_f(a, b, c):
 print(my_summ_2_max_f(5, 10, 15))
 print(my_summ_2_max_f(5, 5, 5))
 print(my_summ_2_max_f(5, 5, 20))
+
+
+# Вариант 3
+def my_summ_args(*args):
+    if len(args) > 3:
+        raise TypeError('my_summ_args() takes max 3 positional arguments but 4 were given')
+    return sum(args) - min(args)
+
+
+try:
+    print(my_summ_args(5, 10, 15))
+except TypeError as e:
+    print(e)

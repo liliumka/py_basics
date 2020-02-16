@@ -7,9 +7,11 @@
 к полученной ранее сумме и после этого завершить программу.
 """
 
+# Вариант 1
 total_sum = 0
-while True:
-    in_process = True
+in_process = True
+print('Для завершения ввода введите символ "q"')
+while in_process:
     nums = input('Введите числа, разделяя их пробелами: ').split()
 
     if 'q' in nums:
@@ -20,6 +22,3 @@ while True:
     total_sum += sum(nums)
 
     print(f'Общая сумма: {total_sum}')
-
-    if not in_process:
-        break
