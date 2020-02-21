@@ -3,6 +3,7 @@
 В расчете необходимо использовать формулу: (выработка в часах * ставка в час) + премия.
 Для выполнения расчета для конкретных значений необходимо запускать скрипт с параметрами.
 """
+# todo: посмотреть модуль argparse
 import sys
 
 '''
@@ -17,3 +18,17 @@ except ValueError as e:
     print('Параметры для расчета заработной платы должны быть числами')
 else:
     print(work_time * cost_by_time + bonus)
+print()
+
+
+# Другое решение:
+def salary(hours, rate, reward=0):
+    return hours * rate + reward
+
+
+try:
+    print(f'Salary is: {salary(*map(int, sys.argv[1:4]))}')
+except TypeError:
+    print('Not enough argument')
+except ValueError:
+    print('Wrong argument')

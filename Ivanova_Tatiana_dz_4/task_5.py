@@ -9,3 +9,9 @@ from functools import reduce
 nums = [n for n in range(100, 1000 + 1) if n % 2 == 0]
 print(nums)
 print(reduce(lambda a, b: a * b, nums))
+
+
+# забыли про третий аргумент range, а с ним решение изящнее
+nums = [n for n in range(100, 1001, 2)]
+print(nums)
+print(reduce(lambda a, b: a * b, nums))

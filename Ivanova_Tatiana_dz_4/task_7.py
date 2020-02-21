@@ -21,7 +21,8 @@ def fibo_gen(num):
         yield result
 
 
-my_generator = fibo_gen(15)
-print(my_generator)
-for n in my_generator:
-    print(n)
+if __name__ == '__main__':
+    my_generator = fibo_gen(15)
+    print(my_generator)
+    for n in my_generator:
+        print(n)
