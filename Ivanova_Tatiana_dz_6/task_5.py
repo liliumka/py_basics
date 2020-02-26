@@ -9,7 +9,8 @@
 
 
 class Stationery:
-    title = 'пишущий инструмент'
+    def __init__(self, title):
+        self.title = title
 
     def __str__(self):
         return f'Мы взяли {self.title}'
@@ -19,38 +20,32 @@ class Stationery:
 
 
 class Pen(Stationery):
-    title = 'ручку'
-
     def draw(self):
         print('Пишем заметки в тетради')
 
 
 class Pencil(Stationery):
-    title = 'карандаш'
-
     def draw(self):
         print('Рисуем рисунок')
 
 
 class Handle(Stationery):
-    title = 'маркер'
-
     def draw(self):
         print('Отмечаем важные места в заметках')
 
 
 if __name__ == '__main__':
-    pen = Pen()
+    pen = Pen('ручку')
     print(pen)
     pen.draw()
     print()
 
-    pencil = Pencil()
+    pencil = Pencil('карандаш')
     print(pencil)
     pencil.draw()
     print()
 
-    handle = Handle()
+    handle = Handle('маркер')
     print(handle)
     handle.draw()
     print()

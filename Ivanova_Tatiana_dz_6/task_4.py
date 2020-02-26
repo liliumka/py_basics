@@ -13,7 +13,7 @@ speed, color, name, is_police (булево).
 
 
 class Car:
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed, color, name, is_police=False):
         self.speed = speed
         self.color = color
         self.name = name
@@ -33,9 +33,6 @@ class Car:
 
 
 class TownCar(Car):
-    def __init__(self, speed, color, name):
-        super().__init__(speed, color, name, False)
-
     def show_speed(self):
         super().show_speed()
         if self.speed > 60:
@@ -43,14 +40,10 @@ class TownCar(Car):
 
 
 class SportCar(Car):
-    def __init__(self, speed, color, name):
-        super().__init__(speed, color, name, False)
+    pass
 
 
 class WorkCar(Car):
-    def __init__(self, speed, color, name):
-        super().__init__(speed, color, name, False)
-
     def show_speed(self):
         super().show_speed()
         if self.speed > 40:

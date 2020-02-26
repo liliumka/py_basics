@@ -13,7 +13,6 @@ name, surname, position (должность), income (доход).
 
 
 class Worker:
-
     def __init__(self, name, surname, position, wage, bonus=0):
         self.name = name
         self.surname = surname
@@ -22,7 +21,6 @@ class Worker:
 
 
 class Position(Worker):
-
     def get_full_name(self):
         return f'{self.name} {self.surname}'
 
