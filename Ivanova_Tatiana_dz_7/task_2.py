@@ -30,10 +30,7 @@ class Clothes(ABC):
 
     @property
     def size_param(self):
-        if not isinstance(self._size_param, (int, float)):
-            raise ValueError('ERROR!!! Внимание, нарушена целостность данных!')
-        else:
-            return self._size_param
+        return self._size_param
 
     @size_param.setter
     def size_param(self, value):
@@ -44,16 +41,17 @@ class Clothes(ABC):
         else:
             raise ValueError('ERROR!!! Параметр размера необходимо указывать числом!')
 
-    def __str__(self):
-        title = f' "{self.title}"' if self.title else ''
-        return f'Это {self._item_type}{title}'
-
-    def __add__(self, other):
-        return self.calc_material() + other.calc_material()
-
     @abstractmethod
     def calc_material(self):
         pass
+
+    @staticmethod
+    def total_sum_material(*args):
+        return sum(map(lambda obj: obj.calc_material(), args))
+
+    def __str__(self):
+        title = f' "{self.title}"' if self.title else ''
+        return f'Это {self._item_type}{title}'
 
 
 class Coat(Clothes):
@@ -91,4 +89,5 @@ if __name__ == '__main__':
 
     # общее кол-во материала для изготовления пальто и костюма
     print('Ателье "ВЕСЕЛЫЕ ПОРТНЫЕ"')
-    print(f'Для пошива пальто и костюма нам понадобится {coat_1 + suit_1} метров ткани')
+    total_sum_material = Clothes.total_sum_material(coat_1, suit_1)
+    print(f'Для пошива пальто и костюма нам понадобится {total_sum_material} метров ткани')
